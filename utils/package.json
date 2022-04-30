@@ -2,13 +2,16 @@
   "name": "utils",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "main": "uploadFiles.cjs",
   "scripts": {
-    "upload": "AWS_PROFILE=unicamp AWS_REGION=sa-east-1 AWS_BUCKET_NAME=sa-east-1-latency-test-pfg-unicamp node index.js"
+    "fetch": "node fetchFiles.js",
+    "upload": "AWS_PROFILE=unicamp AWS_REGION=sa-east-1 AWS_BUCKET_NAME=sa-east-1-latency-test-pfg-unicamp node uploadFiles.cjs"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.1125.0"
+    "aws-sdk": "^2.1125.0",
+    "node-fetch": "^3.2.4"
   }
 }
