@@ -37,6 +37,6 @@ fs.readdir(directoryPath, function (err, files) {
     files.forEach(function (file) {
         filepath = directoryPath + "/" + file
         console.log("Attempt to upload file", filepath);
-        uploadFile(S3Client, filepath, file);
+        uploadFile(S3Client, filepath, AWS_REGION + "/" + file);
     });
 });

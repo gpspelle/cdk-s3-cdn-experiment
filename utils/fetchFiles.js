@@ -32,14 +32,14 @@ const asyncCall = async (i, size, domain) => {
 console.time('Total without CDN')
 for (var i = 0; i < 10; i+=1) {
     const size = fileSizes[2];
-    await asyncCall(i, size, `https://${AWS_BUCKET_NAME}/${size}kb`);
+    await asyncCall(i, size, `https://${AWS_BUCKET_NAME}/${AWS_REGION}/${size}kb`);
 }
 console.timeEnd('Total without CDN')
 
 console.time('Total with CDN')
 for (var i = 0; i < 10; i+=1) {
     const size = fileSizes[2];
-    await asyncCall(i, size, `${CUSTOM_DOMAIN}/${size}kb`);
+    await asyncCall(i, size, `${CUSTOM_DOMAIN}/${AWS_REGION}/${size}kb`);
 }
 console.timeEnd('Total with CDN')
 
