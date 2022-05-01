@@ -8,3 +8,8 @@ new PfgStack(app, 'PfgStack', {
   env: { account: '593593438961', region: 'sa-east-1' },
   bucketName: "sa-east-1-latency-test-pfg-unicamp",
 });
+
+new PfgStack(app, 'PfgStack-us-east-1', {
+  env: { account: '593593438961', region: 'us-east-1' },
+  bucketName: "us-east-1-latency-test-pfg-unicamp",
+});

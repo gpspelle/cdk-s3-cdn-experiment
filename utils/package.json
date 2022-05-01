@@ -5,8 +5,10 @@
   "type": "module",
   "main": "uploadFiles.cjs",
   "scripts": {
-    "fetch": "node fetchFiles.js",
-    "upload": "AWS_PROFILE=unicamp AWS_REGION=sa-east-1 AWS_BUCKET_NAME=sa-east-1-latency-test-pfg-unicamp node uploadFiles.cjs"
+    "fetch:sa": "AWS_REGION=sa-east-1 node fetchFiles.js",
+    "fetch:us": "AWS_REGION=us-east-1 node fetchFiles.js",
+    "upload:sa": "AWS_PROFILE=unicamp AWS_REGION=sa-east-1 AWS_BUCKET_NAME=sa-east-1-latency-test-pfg-unicamp node uploadFiles.cjs",
+    "upload:us": "AWS_PROFILE=unicamp AWS_REGION=us-east-1 AWS_BUCKET_NAME=us-east-1-latency-test-pfg-unicamp node uploadFiles.cjs"
   },
   "author": "",
   "license": "ISC",
