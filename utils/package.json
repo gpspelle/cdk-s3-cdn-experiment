@@ -13,7 +13,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async-mutex": "^0.3.2",
     "aws-sdk": "^2.1125.0",
-    "node-fetch": "^3.2.4"
+    "axios": "^0.27.2"
   }
 }
