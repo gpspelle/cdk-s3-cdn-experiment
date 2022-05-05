@@ -2,10 +2,11 @@ import { Mutex } from 'async-mutex';
 import axios from 'axios';
 
 const {
-    AWS_REGION
+    AWS_REGION,
+    AWS_BUCKET_BASE_NAME,
 } = process.env;
 
-const AWS_BUCKET_NAME = `${AWS_REGION}-latency-test-pfg-unicamp.s3.${AWS_REGION}.amazonaws.com`
+const AWS_BUCKET_NAME = `${AWS_REGION}-${AWS_BUCKET_BASE_NAME}.s3.${AWS_REGION}.amazonaws.com`
 const CUSTOM_DOMAIN = 'https://gpspelle.click';
 
 const fileSizes = [1, 10, 100, 1000, 10000];
@@ -19,7 +20,6 @@ const asyncCall = async (i, size, domain) => {
         .then(res => {
             console.timeEnd(`[${i}] Get ${size}kb file`);
             console.log(`statusCode: ${res.status}`);
-            // console.log(res);
             release();
         })
         .catch(error => {

@@ -3,8 +3,10 @@ const fs = require('fs');
 const S3 = require("aws-sdk/clients/s3")
 const { 
   AWS_REGION,
-  AWS_BUCKET_NAME,
+  AWS_BUCKET_BASE_NAME,
 } = process.env;
+
+const AWS_BUCKET_NAME = `${AWS_REGION}-${AWS_BUCKET_BASE_NAME}`;
 
 const S3Client = new S3({
     region: AWS_REGION,
