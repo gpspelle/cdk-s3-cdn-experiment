@@ -4,10 +4,11 @@ import axios from 'axios';
 const {
     AWS_REGION,
     AWS_BUCKET_BASE_NAME,
+    CUSTOM_DOMAIN,
 } = process.env;
 
 const AWS_BUCKET_NAME = `${AWS_REGION}-${AWS_BUCKET_BASE_NAME}.s3.${AWS_REGION}.amazonaws.com`
-const CUSTOM_DOMAIN = 'https://gpspelle.click';
+//const CUSTOM_DOMAIN = 'https://gpspelle.click'; //d17ks6vl6q5ax4.cloudfront.net
 
 const fileSizes = [1, 10, 100, 1000, 10000];
 const mutex = new Mutex();
