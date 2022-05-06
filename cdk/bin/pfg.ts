@@ -4,7 +4,7 @@ import * as cdk from 'aws-cdk-lib';
 import { BucketStack } from '../lib/bucket-stack';
 import { CdnStack } from '../lib/cdn-stack';
 import { CdnStackAlisson } from '../lib/cdn-stack-alisson';
-import * as dotenv from "dotenv";
+import * as dotenv from 'dotenv';
 dotenv.config({ path: __dirname + '/.env' })
 
 const { 
@@ -12,7 +12,6 @@ const {
   accountNumber
 } = process.env;
 
-console.log(accountNumber,bucketBaseName);
 
 const app = new cdk.App();
 
