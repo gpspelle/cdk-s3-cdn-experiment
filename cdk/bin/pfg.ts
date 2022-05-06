@@ -12,7 +12,6 @@ const {
   accountNumber
 } = process.env;
 
-
 const app = new cdk.App();
 
 // South America
