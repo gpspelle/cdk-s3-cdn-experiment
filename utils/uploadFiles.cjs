@@ -1,10 +1,15 @@
 const path = require('path');
 const fs = require('fs');
 const S3 = require("aws-sdk/clients/s3")
+require('dotenv').config()
+
 const { 
   AWS_REGION,
   AWS_BUCKET_BASE_NAME,
+  AWS_PROFILE
 } = process.env;
+
+console.log(AWS_REGION, AWS_BUCKET_BASE_NAME, AWS_PROFILE)
 
 const AWS_BUCKET_NAME = `${AWS_REGION}-${AWS_BUCKET_BASE_NAME}`;
 
