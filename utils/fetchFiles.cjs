@@ -23,18 +23,6 @@ var filename = `log-${AWS_REGION}-`+date.format(now, 'YYYYMMDDHHmmss')+'.csv';
 
 const ws = fs.createWriteStream(filename, { flag: 'a' });
 
-// var data = [{
-//     ProcessDate : 'ProcessDate',
-//     SourceUrl : 'SourceUrl',
-//     FileSize : 'FileSize',
-//     ElapsedTime : 'ElapsedTime',
-//     StatusCode : 'StatusCode'
-// }];
-
-//fastcsv
-///  .write(data, { headers: false })
-  //.pipe(ws);
-
 data = [];
 
 const asyncCall = async (i, size, domain) => {
@@ -48,8 +36,6 @@ const asyncCall = async (i, size, domain) => {
             console.log(`statusCode: ${res.status}`);
             var end = performance.now();
             var time = end - start;
-            console.log(time);
-            //console.log(date.format(now, 'YYYY-MM-DD HH:mm:ss'));
             data.push({
                 ProcessDate : date.format(now, 'YYYY-MM-DD HH:mm:ss'),
                 SourceUrl : domain,
@@ -64,7 +50,6 @@ const asyncCall = async (i, size, domain) => {
             console.error(error);
             var end = performance.now();
             var time = end - start;
-            console.log(time);
             data.push({
                 ProcessDate : date.format(now, 'YYYY-MM-DD HH:mm:ss'),
                 SourceUrl : domain,
@@ -88,7 +73,6 @@ const makeQueries = async (size, numIt) => {
         await asyncCall(i, size, `${CUSTOM_DOMAIN}/${AWS_REGION}/${size}kb`);
     }
     console.timeEnd('Total with CDN')
-    //console.log(data);
     fastcsv
         .write(data, { headers: true })
         .pipe(ws);
