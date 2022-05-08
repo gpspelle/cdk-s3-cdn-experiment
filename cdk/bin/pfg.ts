@@ -45,12 +45,12 @@ new BucketStack(app, 'BucketStack-eu-west-1', {
 });
 
 // Oceania
-new BucketStack(app, 'BucketStack-ap-southeast-1', {
-  env: { account: accountNumber, region: 'ap-southeast-1' },
-  bucketName: `ap-southeast-1-${bucketBaseName}`,
+new BucketStack(app, 'BucketStack-ap-southeast-2', {
+  env: { account: accountNumber, region: 'ap-southeast-2' },
+  bucketName: `ap-southeast-2-${bucketBaseName}`,
 });
 
-const regions = ["sa-east-1", "us-east-1", "af-south-1", "ap-northeast-1", "eu-west-1", "ap-southeast-1"];
+const regions = ["sa-east-1", "us-east-1", "af-south-1", "ap-northeast-1", "eu-west-1", "ap-southeast-2"];
 new CdnStack(app, 'CdnStack', {
   env: { account: accountNumber, region: 'us-east-1' },
   bucketBaseName,

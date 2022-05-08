@@ -8,8 +8,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk:gpspelle": "cdk deploy BucketStack-sa-east-1 BucketStack-us-east-1 BucketStack-af-south-1 BucketStack-ap-northeast-1 BucketStack-eu-west-1 BucketStack-ap-southeast-1 CdnStack --profile unicamp",
-    "cdk:alisson": "cdk deploy BucketStack-sa-east-1 BucketStack-us-east-1 BucketStack-af-south-1 BucketStack-ap-northeast-1 BucketStack-eu-west-1 BucketStack-ap-southeast-1 CdnStackAlisson --profile alisson"
+    "cdk:gpspelle": "cdk deploy BucketStack-sa-east-1 BucketStack-us-east-1 BucketStack-af-south-1 BucketStack-ap-northeast-1 BucketStack-eu-west-1 BucketStack-ap-southeast-2 CdnStack --profile unicamp",
+    "cdk:alisson": "cdk deploy BucketStack-sa-east-1 BucketStack-us-east-1 BucketStack-af-south-1 BucketStack-ap-northeast-1 BucketStack-eu-west-1 BucketStack-ap-southeast-2 CdnStackAlisson --profile alisson"
   },
   "devDependencies": {
     "@types/jest": "^26.0.10",
