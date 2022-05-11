@@ -1,6 +1,6 @@
 const { Mutex } = require('async-mutex');
 const axios = require('axios');
-const {performance} = require('perf_hooks');
+const { performance } = require('perf_hooks');
 const date = require('date-and-time');
 const fastcsv = require('fast-csv');
 const fs = require('fs');
