@@ -4,6 +4,8 @@ import * as cdk from 'aws-cdk-lib';
 import { BucketStack } from '../lib/bucket-stack';
 import { CdnStack } from '../lib/cdn-stack';
 import { CdnStackAlisson } from '../lib/cdn-stack-alisson';
+
+import constants from '../../constants.json';
 import * as dotenv from 'dotenv';
 dotenv.config({ path: __dirname + '/.env' })
 
@@ -50,15 +52,14 @@ new BucketStack(app, 'BucketStack-ap-southeast-2', {
   bucketName: `ap-southeast-2-${bucketBaseName}`,
 });
 
-const regions = ["sa-east-1", "us-east-1", "af-south-1", "ap-northeast-1", "eu-west-1", "ap-southeast-2"];
 new CdnStack(app, 'CdnStack', {
   env: { account: accountNumber, region: 'us-east-1' },
   bucketBaseName,
-  regions,
+  regions: constants.regions,
 })
 
 new CdnStackAlisson(app, 'CdnStackAlisson', {
   env: { account: accountNumber, region: 'us-east-1' },
   bucketBaseName,
-  regions,
+  regions: constants.regions,
 })

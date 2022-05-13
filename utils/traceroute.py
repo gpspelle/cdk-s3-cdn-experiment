@@ -1,14 +1,16 @@
 import os
+import json
 from datetime import datetime
 from subprocess import Popen
 from dotenv import load_dotenv
-
 load_dotenv()
+
+json_file = open("../constants.json")
+constants = json.load(json_file)
+json_file.close()
 
 CUSTOM_DOMAIN = os.getenv('CUSTOM_DOMAIN')
 AWS_BUCKET_BASE_NAME = os.getenv('AWS_BUCKET_BASE_NAME')
-
-REGIONS = ['sa-east-1','us-east-1','af-south-1','eu-west-1','ap-northeast-1','ap-southeast-2']
 
 filename = 'log-traceroute-'+datetime.now().strftime('%Y%m%d%H%M%S')+'.log'
 logfile = open(filename,'a')
@@ -24,7 +26,7 @@ urlCDN = CUSTOM_DOMAIN.replace('https://','')
 print(urlCDN)
 tracer(urlCDN)
 
-for AWS_REGION in REGIONS:
+for AWS_REGION in constants['regions']:
     urlBucket = '{}-{}.s3.{}.amazonaws.com'.format(AWS_REGION,AWS_BUCKET_BASE_NAME,AWS_REGION)
     print(urlBucket)
     tracer(urlBucket)
