@@ -18,7 +18,7 @@ logfile = open(filename,'a')
 def tracer(host=None):
     logfile.write('##########################################################################################\n')
     logfile.flush()
-    p = Popen(['traceroute', host, '-I', '-m', '50'], stdout=logfile)
+    p = Popen(['traceroute', '-I', '-m', '50', host], stdout=logfile)
     p.wait()
 
 
