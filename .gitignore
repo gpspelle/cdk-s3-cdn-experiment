@@ -10,4 +10,5 @@ cdk.out
 *.csv
 *.log
 *.jpg
+*.png
 *.DS_Store
