@@ -10,6 +10,7 @@ const {
     AWS_REGION,
     AWS_BUCKET_BASE_NAME,
     CUSTOM_DOMAIN,
+    ORIGIN
 } = process.env;
 
 /**
@@ -122,7 +123,7 @@ const main = async () => {
         releaseFileSizes();
     }
 
-    const filename = `log-${AWS_REGION}-` + date.format(now, 'YYYYMMDDHHmmss') + '.csv';
+    const filename = `log-${AWS_REGION}-` + date.format(now, 'YYYYMMDDHHmmss') + "_" + ORIGIN + '.csv';
     const ws = fs.createWriteStream(filename, { flag: 'a' });
 
     fastcsv
