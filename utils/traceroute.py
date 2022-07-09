@@ -17,7 +17,7 @@ AWS_BUCKET_BASE_NAME = os.getenv('AWS_BUCKET_BASE_NAME')
 ##              GENERATE TRACEROUTE OUTPUT FILE                   ##
 ####################################################################
 
-filename = 'log-traceroute-'+datetime.now().strftime('%Y%m%d%H%M%S')+'.log'
+filename = 'lux-log-traceroute-'+datetime.now().strftime('%Y%m%d%H%M%S')+'.log'
 logfile = open(filename,'a')
 
 def tracer(host=None):
@@ -55,7 +55,7 @@ with open(filename) as parsefile:
         else:
             if line.find("(") > 0:
                 route.append(line[line.find("(")+1:line.find(")")])
-    routes.append(route[3:])
+    routes.append(route[2:])
     parsefile.close()
 
 
@@ -64,7 +64,7 @@ with open(filename) as parsefile:
 ####################################################################
 
 requesturl = "http://ip-api.com/batch"
-datafilename = filename.replace("log-traceroute", "geoloc-results")
+datafilename = filename.replace("lux-log-traceroute", "lux-geoloc-results")
 responses = []
 
 for currentRoute in routes:
