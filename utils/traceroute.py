@@ -1,6 +1,7 @@
 import os
 import json
 import requests
+import socket
 from datetime import datetime
 from subprocess import Popen
 from dotenv import load_dotenv
@@ -33,8 +34,10 @@ tracer(urlCDN)
 
 for AWS_REGION in constants['regions']:
     urlBucket = '{}-{}.s3.{}.amazonaws.com'.format(AWS_REGION,AWS_BUCKET_BASE_NAME,AWS_REGION)
+    IPAddr = socket.gethostbyname(urlBucket)
+    print(IPAddr)
     print(urlBucket)
-    tracer(urlBucket)
+    tracer(IPAddr)
 
 logfile.close()
 
